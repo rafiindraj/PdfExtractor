@@ -22,8 +22,7 @@ export class PdfController {
   // Angular calls this in the background. It returns JSON, not a file.
   // ------------------------------------------------------------------
   @Post('export')
-  async exportPdf(@Body() payload: { css: string, html: string }) { // Changed 'chunks' back to 'html'
-    // ...
+  async exportPdf(@Body() payload: { css: string, html: string }) {
     const pdfBuffer = await this.pdfService.generatePdf(payload.css, payload.html);
 
     // 2. Create a unique filename (e.g., report-1683459123.pdf)
